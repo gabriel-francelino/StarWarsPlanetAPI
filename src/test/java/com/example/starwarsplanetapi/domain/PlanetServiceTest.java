@@ -1,5 +1,7 @@
 package com.example.starwarsplanetapi.domain;
 
+import org.hamcrest.MatcherAssert;
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -35,6 +37,6 @@ public class PlanetServiceTest {
         Planet sut = planetService.create(PLANET);
 
         // Assert
-        assertThat(sut, equalTo(PLANET));
+        MatcherAssert.assertThat(sut, Matchers.equalTo(PLANET));
     }
 }

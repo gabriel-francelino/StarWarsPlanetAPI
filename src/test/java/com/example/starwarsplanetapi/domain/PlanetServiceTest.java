@@ -45,6 +45,16 @@ public class PlanetServiceTest {
         Mockito.when(planetRepository.save(INVALID_PLANET)).thenThrow(RuntimeException.class);
         Assertions.assertThatThrownBy(() -> planetService.create(INVALID_PLANET)).isInstanceOf(RuntimeException.class);
     }
+
+    @Test
+    public void getPlanet_ByExistingId_ReturnsPlanet(){
+        //TODO
+    }
+
+    @Test
+    public void getPlanet_ByUnexistingId_ReturnsEmpty(){
+        //TODO
+    }
 }
 
 

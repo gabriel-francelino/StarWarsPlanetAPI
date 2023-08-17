@@ -6,8 +6,11 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Optional;
+
 import static com.example.starwarsplanetapi.common.PlanetConstants.PLANET;
 import static org.assertj.core.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 
 //@SpringBootTest(classes = PlanetRepository.class)
 @DataJpaTest // com essa anotação não será necessário o @SpringBootTest
@@ -47,5 +50,21 @@ public class PlanetRepositoryTest {
         planet.setId(null);
 
         assertThatThrownBy(() -> planetRepository.save(planet)).isInstanceOf(RuntimeException.class);
+    }
+
+    @Test
+    public void getPlanet_ByExistingId_ReturnsPlanet(){
+        Planet planet = testEntityManager.persistFlushFind(PLANET);
+        testEntityManager.detach(planet);
+
+        Optional<Planet> sut = planetRepository.findById(planet.getId());
+
+        assertThat(sut).isNotEmpty();
+        assertThat(sut.get()).isEqualTo(PLANET);
+    }
+
+    @Test
+    public void getPlanet_ByUnexistingId_ReturnsNotFound(){
+
     }
 }

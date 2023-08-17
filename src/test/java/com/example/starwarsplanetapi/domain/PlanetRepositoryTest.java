@@ -57,6 +57,7 @@ public class PlanetRepositoryTest {
         Planet planet = testEntityManager.persistFlushFind(PLANET);
         testEntityManager.detach(planet);
 
+        // não tenho certeza se precisa criar método no repositório
         Optional<Planet> sut = planetRepository.findById(planet.getId());
 
         assertThat(sut).isNotEmpty();

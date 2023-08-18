@@ -20,7 +20,7 @@ public class Planet {
     @Column(nullable = false)
     private String terrain;
 
-    public Planet(){
+    public Planet() {
 
     }
 
@@ -35,7 +35,7 @@ public class Planet {
         this.terrain = terrain;
     }
 
-    public Planet(long id, String name, String climate, String terrain) {
+    public Planet(Long id, String name, String climate, String terrain) {
         this.id = id;
         this.name = name;
         this.climate = climate;

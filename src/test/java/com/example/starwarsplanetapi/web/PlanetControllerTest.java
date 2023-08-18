@@ -73,7 +73,7 @@ public class PlanetControllerTest {
     public void getPlanet_ByExistingId_ReturnsPlanet() throws Exception{
         when(planetService.get(any())).thenReturn(Optional.of(PLANET));
 
-        mockMvc.perform(get("/planets/1"))
+        mockMvc.perform(get("/planets/{id}", 1L))
                 .andExpect(status().is2xxSuccessful())
                 .andExpect(jsonPath("$").value(PLANET));
 
@@ -81,6 +81,9 @@ public class PlanetControllerTest {
 
     @Test
     public void getPlanet_ByUnexistingId_ReturnsNotFound() throws Exception{
+        when(planetService.get(any())).thenReturn(Optional.empty());
 
+        mockMvc.perform(get("/planets/{id}", -99L))
+                .andExpect(status().isNotFound());
     }
 }

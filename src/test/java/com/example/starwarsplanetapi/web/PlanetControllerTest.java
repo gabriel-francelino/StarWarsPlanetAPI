@@ -12,9 +12,12 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.util.Optional;
+
 import static com.example.starwarsplanetapi.common.PlanetConstants.PLANET;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -68,6 +71,11 @@ public class PlanetControllerTest {
 
     @Test
     public void getPlanet_ByExistingId_ReturnsPlanet() throws Exception{
+        when(planetService.get(any())).thenReturn(Optional.of(PLANET));
+
+        mockMvc.perform(get("/planets/1"))
+                .andExpect(status().is2xxSuccessful())
+                .andExpect(jsonPath("$").value(PLANET));
 
     }
 

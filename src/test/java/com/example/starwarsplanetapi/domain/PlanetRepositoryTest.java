@@ -91,4 +91,14 @@ public class PlanetRepositoryTest {
 
         assertThat(sut).isEmpty();
     }
+
+    @Test
+    public void listPlanets_ReturnsFilteredPlanets() {
+        // TODO implement
+    }
+
+    @Test
+    public void listPlanets_ReturnsNoPlanets() {
+        // TODO implement
+    }
 }

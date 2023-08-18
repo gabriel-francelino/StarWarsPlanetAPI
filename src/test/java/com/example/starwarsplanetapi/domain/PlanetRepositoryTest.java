@@ -1,5 +1,6 @@
 package com.example.starwarsplanetapi.domain;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -20,6 +21,11 @@ public class PlanetRepositoryTest {
 
     @Autowired
     private TestEntityManager testEntityManager;
+
+    @AfterEach
+    public void afterEach(){
+        PLANET.setId(null); // depois de cada teste o id de PLANET será null
+    }
 
     @Test
     public void createPlanet_WithValidData_ReturnsPlanet(){
@@ -55,17 +61,17 @@ public class PlanetRepositoryTest {
     @Test
     public void getPlanet_ByExistingId_ReturnsPlanet(){
         Planet planet = testEntityManager.persistFlushFind(PLANET);
-        testEntityManager.detach(planet);
 
-        // não tenho certeza se precisa criar método no repositório
         Optional<Planet> sut = planetRepository.findById(planet.getId());
 
         assertThat(sut).isNotEmpty();
-        assertThat(sut.get()).isEqualTo(PLANET);
+        assertThat(sut.get()).isEqualTo(planet);
     }
 
     @Test
     public void getPlanet_ByUnexistingId_ReturnsNotFound(){
+        Optional<Planet> sut = planetRepository.findById(-9L);
 
+        assertThat(sut).isEmpty();
     }
 }

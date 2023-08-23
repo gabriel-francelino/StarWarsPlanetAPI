@@ -22,7 +22,7 @@ public class PlanetIT {
     @Autowired
     private TestRestTemplate restTemplate;
     @Test
-    public void createPlanet_returnsCreated(){
+    public void createPlanet_ReturnsCreated(){
         ResponseEntity<Planet> sut = restTemplate.postForEntity("/planets", PLANET, Planet.class);
 
         assertThat(sut.getStatusCode()).isEqualTo(HttpStatus.CREATED);
@@ -34,11 +34,39 @@ public class PlanetIT {
     }
 
     @Test
-    public void getPlanet_returnsPlanet(){
+    public void getPlanet_ReturnsPlanet(){
         ResponseEntity<Planet> sut = restTemplate.getForEntity("/planets/1", Planet.class);
 
         assertThat(sut.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(sut.getBody()).isEqualTo(TATOOINE);
+    }
+
+    @Test
+    public void getPlanetByName_ReturnsPlanet() {
+        ResponseEntity<Planet> sut = restTemplate.getForEntity("/planets/name/Tatooine", Planet.class);
+
+        assertThat(sut.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(sut.getBody()).isEqualTo(TATOOINE);
+    }
+
+    @Test
+    public void listPlanets_ReturnsAllPlanets() {
+        // TODO implement
+    }
+
+    @Test
+    public void listPlanets_ByClimate_ReturnsPlanets() {
+        // TODO implement
+    }
+
+    @Test
+    public void listPlanets_ByTerrain_ReturnsPlanets() {
+        // TODO implement
+    }
+
+    @Test
+    public void removePlanet_ReturnsNoContent() {
+        // TODO implement
     }
 
 }

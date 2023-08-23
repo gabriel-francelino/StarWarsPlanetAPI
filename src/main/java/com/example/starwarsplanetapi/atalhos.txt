@@ -1,0 +1,31 @@
+Alr + 1 - Oculta e mostra barra lateral de projetos
+
+Alt + insert - Adiciona arquivo, gera código
+
+Ctrl + D - Duplica a linha
+
+Ctrl + Shift + F10 - Cria configuração de execução automaticamente
+
+Shift + F10 - Executa o programa
+
+Ctrl + Alt + V - Cria variavel automaticamente depois de instanciar. Ex: "new Integer(30);"
+
+Ctrl + Alt + setas direita e esquerda -  Atera entre as classes abertas
+
+Ctrl + Alt + L - Identa o código
+
+Ctrl + Alt + O - Remove imports que não estão sendo utilizados
+
+Ctrl + B - Mostra onde a váriavel foi criada
+
+Alt + F7 - Indica todos os lugares onde a variável está sendo usada
+
+Ctrl + Alt + M -  Extrai método automaticamente
+
+Shift + F6 - Renomeia
+
+Ctrl + N - Busca por classe
+
+Ctrl + Shift + N - Busca arquivos
+
+Ctrl + Shift + A - Busca ação

@@ -25,8 +25,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class PlanetIT {
     @Autowired
     private TestRestTemplate restTemplate;
+
     @Test
-    public void createPlanet_ReturnsCreated(){
+    public void createPlanet_ReturnsCreated() {
         ResponseEntity<Planet> sut = restTemplate.postForEntity("/planets", PLANET, Planet.class);
 
         assertThat(sut.getStatusCode()).isEqualTo(HttpStatus.CREATED);
@@ -38,7 +39,7 @@ public class PlanetIT {
     }
 
     @Test
-    public void getPlanet_ReturnsPlanet(){
+    public void getPlanet_ReturnsPlanet() {
         ResponseEntity<Planet> sut = restTemplate.getForEntity("/planets/1", Planet.class);
 
         assertThat(sut.getStatusCode()).isEqualTo(HttpStatus.OK);

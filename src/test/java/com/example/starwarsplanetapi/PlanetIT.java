@@ -66,7 +66,11 @@ public class PlanetIT {
 
     @Test
     public void removePlanet_ReturnsNoContent() {
-        // TODO implement
+        restTemplate.delete("/planets/3");
+
+        ResponseEntity<Planet> sut = restTemplate.getForEntity("/planets/3", Planet.class);
+
+        assertThat(sut.getStatusCode()).isEqualTo(HttpStatus.NO_CONTENT);
     }
 
 }

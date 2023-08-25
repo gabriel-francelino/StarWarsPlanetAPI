@@ -27,8 +27,10 @@
 - [Mockito](https://site.mockito.org)
 - [AssertJ](https://github.com/assertj/assertj)
 - [Hamcrest](http://hamcrest.org/JavaHamcrest/)
-- [Jacoco](https://github.com/jacoco/jacoco)
-- [Pitest](https://pitest.org)
+
+[//]: # (- [Jacoco]&#40;https://github.com/jacoco/jacoco&#41;)
+
+[//]: # (- [Pitest]&#40;https://pitest.org&#41;)
 
 ## 💻 Projeto
 

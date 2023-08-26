@@ -1,5 +1,5 @@
 <h1 align="center">
-  StarWars Planet API (sw-planet-api)
+  StarWars Planet API
 </h1>
 
 <p align="center">
@@ -27,10 +27,8 @@
 - [Mockito](https://site.mockito.org)
 - [AssertJ](https://github.com/assertj/assertj)
 - [Hamcrest](http://hamcrest.org/JavaHamcrest/)
-
-[//]: # (- [Jacoco]&#40;https://github.com/jacoco/jacoco&#41;)
-
-[//]: # (- [Pitest]&#40;https://pitest.org&#41;)
+- [Jacoco](https://github.com/jacoco/jacoco)
+- [Pitest](https://pitest.org)
 
 ## 💻 Projeto
 

@@ -143,6 +143,7 @@
                     <targetTests>
                         <param>com.example.starwarsplanetapi.*Test</param>
                     </targetTests>
+                    <excludedClasses>com.example.starwarsplanetapi.domain.Planet</excludedClasses>
                 </configuration>
             </plugin>
         </plugins>

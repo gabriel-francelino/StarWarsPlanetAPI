@@ -65,30 +65,36 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-<!--            &lt;!&ndash; Unit Test  &ndash;&gt;-->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-surefire-plugin</artifactId>-->
-<!--                <configuration>-->
-<!--                    <skip>${surefire.skip}</skip>-->
-<!--                    &lt;!&ndash; Para executar os testes de integração-->
-<!--                        ./mvnw clean verify -Dsurefire.skip=true &ndash;&gt;-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+            <!-- Unit Test  -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId><!--                <version>3.1.2</version>-->
+                <configuration>
+                    <skipTests>${surefire}</skipTests> <!-- Pula testes unitários -->
+                    <!-- Pula todos os testes
+                        <skipTests>${skipTests}</skipTests> -->
 
-<!--            &lt;!&ndash; Integration tests &ndash;&gt;-->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-failsafe-plugin</artifactId>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <goals>-->
-<!--                            <goal>integration-test</goal>-->
-<!--                            <goal>verify</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
+                    <!-- Para executar apenas os testes de integração
+                        ./mvnw clean verify -Dsurefire=true -->
+
+                    <!-- Para executar apenas os testes unitários
+                        ./mvnw clean verify -DskipITs=true -->
+                </configuration>
+            </plugin>
+
+            <!-- Integration tests -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 

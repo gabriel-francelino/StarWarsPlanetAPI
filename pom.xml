@@ -102,6 +102,12 @@
                 <version>0.8.10</version>
                 <!-- ./mvnw clean test jacoco:report -->
 
+                <configuration>
+                    <excludes>
+                        <exclude>com/example/starwarsplanetapi/StarWarsPlanetApiApplication.class</exclude>
+                    </excludes>
+                </configuration>
+
                 <executions>
                     <execution>
                         <goals>
